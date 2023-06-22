@@ -22,10 +22,12 @@ conda create -y -n dragon python=3.8
 conda activate dragon
 pip install torch==1.10.1+cu113 torchvision -f https://download.pytorch.org/whl/cu113/torch_stable.html
 pip install transformers==4.9.1 wandb nltk spacy==2.1.6
-python -m spacy download en
 pip install scispacy==0.3.0
 pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.3.0/en_core_sci_sm-0.3.0.tar.gz
 pip install torch-scatter==2.0.9 torch-sparse==0.6.12 torch-geometric==2.0.0 -f https://pytorch-geometric.com/whl/torch-1.10.1+cu113.html
+pip install spacy==2.1.6
+python -m spacy download en
+pip install networkx==2.8.8
 ```
 
 ## 1. Download pretrained models
