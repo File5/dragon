@@ -74,7 +74,7 @@ def import_data(args):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dir', default='~/SceneGraphGenZeroShotWithGSAM/outputs/sgg_2661/', help="directory to import data from")
+    parser.add_argument('--dir', default='~/SceneGraphGenZeroShotWithGSAM/outputs/sgg/', help="directory to import data from")
     parser.add_argument('--output', default='./data/custom/', help="directory to import data from")
     args = parser.parse_args()
     import_data(args)

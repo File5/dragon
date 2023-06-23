@@ -209,6 +209,9 @@ def calc_eval_accuracy(args, eval_set, model, loss_type, loss_func, debug, save_
                 break
     if save_test_preds:
         f_preds.close()
+    if n_samples_acm == 0:
+        print("n_samples_acm == 0 !! setting to 1")
+        n_samples_acm = 1
     total_loss_avg, end_loss_avg, mlm_loss_avg, link_loss_avg, pos_link_loss_avg, neg_link_loss_avg, n_corrects_avg = \
         [item / n_samples_acm for item in (total_loss_acm, end_loss_acm, mlm_loss_acm, link_loss_acm, pos_link_loss_acm, neg_link_loss_acm, n_corrects_acm)]
     return total_loss_avg, end_loss_avg, mlm_loss_avg, link_loss_avg, pos_link_loss_avg, neg_link_loss_avg, n_corrects_avg
@@ -644,7 +647,7 @@ def main(args):
                         datefmt='%m/%d/%Y %H:%M:%S',
                         level=logging.WARNING)
 
-    has_test_split = True
+    has_test_split = False
     devices = get_devices(args)
 
     if not args.use_wandb:
